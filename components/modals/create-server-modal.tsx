@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import axios from "axios"
+
+import { useModal } from "@/hooks/use-modal-store";
 
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -21,13 +22,10 @@ const formSchema = z.object({
     })
 })
 
-const InitialModal = () => {
-    const [isMounted, setIsMounted] = useState(false);
+export const CreateServerModal = () => {
+    const { isOpen, onClose, type } = useModal();
     const router = useRouter();
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);    
+    const isModalOpen = isOpen && type === "createServer";
 
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -45,16 +43,19 @@ const InitialModal = () => {
 
             form.reset();
             router.refresh();
-            window.location.reload();
+            onClose();
         } catch (error) {
             console.log(error)
         }
     }
 
-    if(!isMounted) return null;
+    const handleClose = () => {
+        form.reset();
+        onClose();
+    }
 
     return (
-        <Dialog open>
+        <Dialog open={isModalOpen} onOpenChange={handleClose}>
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-center font-bold text-2xl">Customize your server</DialogTitle>
@@ -94,5 +95,3 @@ const InitialModal = () => {
         </Dialog>
     );
 }
- 
-export default InitialModal;

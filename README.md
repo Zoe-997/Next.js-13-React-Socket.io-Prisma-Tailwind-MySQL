@@ -24,6 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 Prisma:
 npx prisma generate
 npx prisma studio
+npx prisma db push
 ```
 
 ## Learn More

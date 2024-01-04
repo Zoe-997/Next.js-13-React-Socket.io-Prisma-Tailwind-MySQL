@@ -23,9 +23,12 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ```bash
 Prisma:
 npx prisma generate
-npx prisma studio
 npx prisma db push
+npx prisma studio
 ```
+
+## Db: 
+https://planetscale.com/
 
 ## Learn More
 
@@ -41,3 +44,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## env file
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_aW5jbHVkZWQtaW1wYWxhLTMuY2xlcmsuYWNjb3VudHMuZGV2JA
+
+CLERK_SECRET_KEY=sk_test_sK33CRVRLro0xWtm25XaZ7YExTyve0F2JkrFdTZOkj
+
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up 
+
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/ 
+
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+
+<!-- This was inserted by prisma init:
+Environment variables declared in this file are automatically made available to Prisma.
+See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+See the documentation for all the connection string options: https://pris.ly/d/connection-strings -->
+
+DATABASE_URL='mysql://a7nrdf1us078kf69ksxw:pscale_pw_WnFpckBUlExBfQVhqhuSVpdtClMdrOZBIKmJEMv52j3@aws.connect.psdb.cloud/discord-tutorial?sslaccept=strict'
+
+UPLOADTHING_SECRET=sk_live_886d784066079b007ea9cba00589b235b3cee1c2ac4e47b81a410360ec46f435
+
+UPLOADTHING_APP_ID=v22zul07ox
